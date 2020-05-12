@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src='@Url.Content("~/Scripts/jquery-3.3.1.min.js")'></script>
+<script src='@Url.Content("~/Scripts/CustomScripts/Product.js?v=2020-05-11")' type="text/javascript"></script>
+
+<h4>Display Product</h4>
+
+<b> choose Price Range and Quantity to filter  :</b>
+
+<div id="BetweenPriceRange" class="form-group">
+    @Html.Label("From", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.TextBox("From ", null, new { id = "From" })
+    </div>
+    <br />
+    @Html.Label("To", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.TextBox("To ", null, new { id = "To" })
+    </div>
+</div>
+
+
+<div id="Quant" class="form-group">
+    @Html.Label("Quantity :", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.TextBox("Quantity ", null, new { id = "Quantity" })
+    </div>
+
+</div>
+
+<input id="ApplyFilter" type="submit" value="Apply Filter" class="btn btn-default" />
+ <br />
+
+ @Html.Partial("_ProductData")
+
+<a href="@Url.Action("Create","Product")">Add Product</a>
+
